@@ -1,4 +1,4 @@
-package com.moderatePerson.domain;
+package com.moderatePerson.domain.PO;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

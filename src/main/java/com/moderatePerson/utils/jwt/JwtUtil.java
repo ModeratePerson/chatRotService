@@ -4,17 +4,13 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.moderatePerson.domain.User;
+import com.moderatePerson.domain.PO.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @description: Jwt工具类，生成JWT和认证
- * @author: heshi
- */
 public class JwtUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtil.class);

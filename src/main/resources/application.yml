@@ -3,6 +3,20 @@ server:
   servlet:
     context-path: / #项目的上下文路径
 spring:
+  # Redis配置
+  redis:
+    host: localhost
+    port: 6379
+    # 根据自己设置的密码决定
+    password: 123456
+    # 操作0号数据库，默认有16个数据库
+    database: 0
+    jedis:
+      pool:
+        max-active: 8 # 最大连接数
+        max-wait: 1ms # 连接池最大阻塞等待时间
+        max-idle: 4   # 连接池中的最大空闲连接
+        min-idle: 0   # 连接池中的最小空闲连接
   datasource:
     url: jdbc:mysql://localhost:3306/chatBot?useSSL=false
     username: root
