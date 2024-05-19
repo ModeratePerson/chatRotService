@@ -7,6 +7,7 @@ public class Message {
     public String msg;
     //    响应体数据部分
     public Object data;
+//    响应码
     public Integer status;
 
     public Integer getStatus() {

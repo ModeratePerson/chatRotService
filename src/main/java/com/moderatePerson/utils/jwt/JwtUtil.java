@@ -2,11 +2,14 @@ package com.moderatePerson.utils.jwt;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.moderatePerson.domain.PO.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +39,7 @@ public class JwtUtil {
         String token = JWT.create()
                 .withHeader(map)// 添加头部
                 //可以将基本信息放到claims中
-                .withClaim("id", user.getUserId())//userId
-                .withClaim("userName", user.getUsername())//userName
-                .withClaim("password", user.getPassword())//password
+                .withClaim("phoneNumber", user.getPhoneNumber())// phoneNumber
                 .withExpiresAt(expireDate) //超时设置,设置过期的日期
                 .withIssuedAt(new Date()) //签发时间
                 .sign(Algorithm.HMAC256(SECRET)); //SECRET加密
@@ -54,7 +55,7 @@ public class JwtUtil {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
             jwt = verifier.verify(token);
 
-            //decodedJWT.getClaim("属性").asString()  获取负载中的属性值
+            jwt.getClaim("属性").asString();  //获取负载中的属性值
 
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -63,6 +64,15 @@ public class JwtUtil {
             return null;
         }
         return jwt.getClaims();
+    }
+    public static String getPhoneNumber(HttpServletRequest request) {
+        try {
+            String token = request.getHeader("Authorization");
+            DecodedJWT jwt = JWT.decode(token);//对token进行解密获得phoneNumber
+            return jwt.getClaim("phoneNumber").asString();
+        } catch (JWTDecodeException e) {
+            return null;
+        }
     }
 
 }

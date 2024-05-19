@@ -12,6 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtTokenInterceptor())
+                .excludePathPatterns("/user/register/**")
                 .excludePathPatterns("/user/login/**")  //登录路径不拦截
                 .addPathPatterns("/**");				//添加需要拦截的路径
     }

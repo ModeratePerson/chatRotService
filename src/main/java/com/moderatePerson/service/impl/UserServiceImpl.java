@@ -1,6 +1,7 @@
 package com.moderatePerson.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.moderatePerson.domain.DTO.UserInfo;
 import com.moderatePerson.domain.PO.User;
 import com.moderatePerson.mapper.UserMapper;
 import com.moderatePerson.service.UserService;
@@ -21,5 +22,28 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectUserByPhoneNumber(String phoneNumber) {
         return userMapper.selectUserByPhoneNumber(phoneNumber);
+    }
+
+    @Override
+    public Integer insertUserByPhoneNumber(String phoneNumber,String username) {
+        User user = new User();
+        user.setPhoneNumber(phoneNumber);
+        user.setUsername(username);
+        return userMapper.insert(user);
+    }
+
+    @Override
+    public Integer updatePasswordByPhoneNumber(String phoneNumber, String password) {
+        return userMapper.updatePasswordByPhoneNumber(phoneNumber,password);
+    }
+
+    @Override
+    public UserInfo selectUserInfo(String phoneNumber) {
+        return userMapper.selectUserInfo(phoneNumber);
+    }
+
+    @Override
+    public Integer updateUserNameByPhoneNumber(String phoneNumber) {
+        return userMapper.updateUserNameByPhoneNumber(phoneNumber);
     }
 }
