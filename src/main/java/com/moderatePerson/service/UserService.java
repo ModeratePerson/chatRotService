@@ -1,9 +1,7 @@
 package com.moderatePerson.service;
 
-import com.moderatePerson.domain.DTO.UserInfo;
+import com.moderatePerson.domain.VO.UserInfo;
 import com.moderatePerson.domain.PO.User;
-
-import java.util.List;
 
 
 public interface UserService {

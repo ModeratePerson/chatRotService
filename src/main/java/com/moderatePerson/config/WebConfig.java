@@ -14,6 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addInterceptor(jwtTokenInterceptor())
                 .excludePathPatterns("/user/register/**")
                 .excludePathPatterns("/user/login/**")  //登录路径不拦截
+                .excludePathPatterns("/alipay/**")
                 .addPathPatterns("/**");				//添加需要拦截的路径
     }
     @Bean

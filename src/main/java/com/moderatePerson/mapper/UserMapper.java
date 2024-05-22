@@ -1,7 +1,7 @@
 package com.moderatePerson.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.moderatePerson.domain.DTO.UserInfo;
+import com.moderatePerson.domain.VO.UserInfo;
 import com.moderatePerson.domain.PO.User;
 import org.apache.ibatis.annotations.Select;
 

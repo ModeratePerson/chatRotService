@@ -1,7 +1,7 @@
 package com.moderatePerson.controller;
 
 import com.aliyuncs.exceptions.ClientException;
-import com.moderatePerson.domain.DTO.UserInfo;
+import com.moderatePerson.domain.VO.UserInfo;
 import com.moderatePerson.domain.PO.User;
 import com.moderatePerson.domain.pojo.Message;
 import com.moderatePerson.service.UserService;
@@ -29,7 +29,7 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
-    /* 用户注册登录功能
+    /** 用户注册登录功能
     * 除含有/register/**,/login/**的路由均会被拦截，前端跳转到登录界面
     * 用户登录后会返回token,再次请求其他资源时必须在(前端在请求头中设置,{Authorization:"token内容"})request Header中携带token，经过token校验后才能访问
     * 请求时携带的token中包含用户手机号信息，即请求除登录注册外资源时前端无需再返回phoneNumber数据
@@ -174,9 +174,9 @@ public class UserController {
         message.setStatus(401);
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(message);
     }
-    /*
+    /**
     * 用户个人信息界面，包含用户名(默认生成,可修改)，修改密码的接口，当前使用套餐类型，账户余额(积分形式)，用户等级(可以享受优惠)
-    * */
+     */
 
     // 查询用户基本信息
     @GetMapping("/info")

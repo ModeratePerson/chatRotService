@@ -1,14 +1,11 @@
 package com.moderatePerson.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.moderatePerson.domain.DTO.UserInfo;
+import com.moderatePerson.domain.VO.UserInfo;
 import com.moderatePerson.domain.PO.User;
 import com.moderatePerson.mapper.UserMapper;
 import com.moderatePerson.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
