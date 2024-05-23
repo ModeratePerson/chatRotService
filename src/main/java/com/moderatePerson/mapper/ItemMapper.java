@@ -13,4 +13,6 @@ import java.util.List;
 public interface ItemMapper extends BaseMapper<Item> {
     @Select("SELECT itemName, itemMsg, discount, price, endDate FROM item WHERE CURRENT_DATE BETWEEN startDate AND endDate")
     public List<ItemInfo> selectItemInfo();
+    @Select("SELECT * FROM item WHERE itemName=#{itemName}")
+    public Item selectItemByName(String itemName);
 }
