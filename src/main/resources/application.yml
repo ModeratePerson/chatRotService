@@ -43,3 +43,25 @@ mybatis-plus:
     lazy-loading-enabled: true #打开懒加载
     aggressive-lazy-loading: false #关闭积极懒加载
     map-underscore-to-camel-case: false
+dashscope:
+  api:
+    url: https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
+    key: sk-130f783b51514da08fea8b5787ef3792
+#  coze不同模块中使用API的环境配置
+app:
+  chat:
+    #    海外版
+    dev:
+      url: "https://api.coze.com/open_api/v2/chat"
+      key: ""
+      bot_id: "7375091418286538757"
+    #    国内版
+    test:
+      url: "https://api.coze.cn/open_api/v2/chat"
+      key: ""
+      bot_id: "7376940590615101459"
+    #      海外版
+    prod:
+      url: "https://api.coze.com/open_api/v2/chat"
+      key: ""
+      bot_id: "prod_bot_id"

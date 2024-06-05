@@ -18,6 +18,7 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
         } else {
             // 验证失败，返回401 Unauthorized错误
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "未授权的请求");
+            response.sendRedirect("/user/login.html");// 重定向到登录界面
             return false;
         }
     }

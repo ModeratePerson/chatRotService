@@ -112,8 +112,9 @@ public class UserController {
             message.setToken(token);
             message.setMsg("登录成功");
             message.setStatus(200);
-/*返回JWT令牌作为响应主体内容，前端需要将token保存在浏览器中,
-发起请求时需要在RequestHeader中添加Authorization:“token”*/
+        /*返回JWT令牌作为响应主体内容，
+        前端需要将token保存在浏览器中,
+        发起请求时需要在RequestHeader中添加Authorization:“token”*/
             return ResponseEntity.ok().body(message);
         }
         else {
@@ -208,5 +209,4 @@ public class UserController {
         message.setMsg("用户名修改成功");
         return ResponseEntity.ok().body(message);
     }
-
 }

@@ -6,6 +6,8 @@ import com.moderatePerson.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
@@ -24,5 +26,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String selectOrderNameById(String orderId) {
         return orderMapper.selectOrderNameById(orderId);
+    }
+
+    @Override
+    public Integer updateOrderBYId(String orderNumber, String payment, Date payTime, Integer status, String orderId) {
+        return orderMapper.updateOrderBYId(orderNumber,payment,payTime,status,orderId);
     }
 }

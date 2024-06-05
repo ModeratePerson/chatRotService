@@ -103,7 +103,7 @@ public class ItemController {
     }
     // 异步通知配置,将支付宝反馈信息返回到服务器
     @RequestMapping("/notifyUrl")
-    public ResponseEntity<?> notifyUrl(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    public ResponseEntity<Message> notifyUrl(HttpServletRequest request, HttpServletResponse response) throws Exception{
         //获取支付宝POST过来反馈信息
         Map<String,String> params = new HashMap<String,String>();
         Map<String,String[]> requestParams = request.getParameterMap();
@@ -144,22 +144,18 @@ public class ItemController {
             long currentTimestamp = System.currentTimeMillis();
             // 转换为Date类型
             Date currentDate = new Date(currentTimestamp);
-            order.setOrderId(out_trade_no);
-            order.setPayment(totalAmount);
-            order.setOrderNumber(trade_no); // 添加支付宝交易号
-            order.setPayTime(currentDate); // 添加支付时间
-            order.setStatus(1);// 将支付状态设为已支付
+            orderService.updateOrderBYId(trade_no,totalAmount,currentDate,1,out_trade_no);
             // 执行数据库修改操作
-            orderService.updateOrderById(order);
             String itemName = orderService.selectOrderNameById(out_trade_no);// 通过id查询到orderName与itemName等价
             String phoneNumber = JwtUtil.getPhoneNumber(request);// 从token中获取手机号
             userService.upgradeUserPermissions(phoneNumber,itemName); // 更新用户权限
+//            out.println("success");
             Message message = new Message();
             message.setStatus(200);
-            message.setMsg("套餐已开通");
+            message.setMsg("支付成功,套餐已开通");
             return ResponseEntity.ok().body(message);
         }else {//验证失败
-            out.println("fail");// 校验失败返回fail结果
+//            out.println("fail");// 校验失败返回fail结果
             Message message = new Message();
             message.setStatus(200);
             message.setMsg("支付失败");

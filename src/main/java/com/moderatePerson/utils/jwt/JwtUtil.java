@@ -74,5 +74,14 @@ public class JwtUtil {
             return null;
         }
     }
+    public static String getUserId(HttpServletRequest request) {
+        try {
+            String token = request.getHeader("Authorization");
+            DecodedJWT jwt = JWT.decode(token);//对token进行解密获得userId
+            return jwt.getClaim("userId").asString();
+        } catch (JWTDecodeException e) {
+            return null;
+        }
+    }
 
 }

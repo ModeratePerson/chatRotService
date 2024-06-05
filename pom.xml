@@ -37,6 +37,15 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+    <!-- Spring Boot Starter WebFlux for WebClient -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
     <!--mybatis plus-->
     <dependency>
       <groupId>com.baomidou</groupId>
@@ -110,6 +119,24 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <groupId>com.alipay.sdk</groupId>
       <artifactId>alipay-sdk-java</artifactId>
       <version>4.22.113.ALL</version>
+    </dependency>
+    <!--通义千问sdk-->
+    <!-- https://mvnrepository.com/artifact/com.alibaba/dashscope-sdk-java -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dashscope-sdk-java</artifactId>
+      <version>2.12.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20240303</version>
+    </dependency>
+<!--  jep在java虚拟机中运行python代码  -->
+    <dependency>
+      <groupId>black.ninia</groupId>
+      <artifactId>jep</artifactId>
+      <version>4.2.0</version>
     </dependency>
   </dependencies>
   <build>

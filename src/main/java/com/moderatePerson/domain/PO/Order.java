@@ -1,5 +1,6 @@
 package com.moderatePerson.domain.PO;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -10,7 +11,6 @@ import java.util.Date;
 @Data
 @TableName("orders")
 public class Order {
-    @TableId
     private String orderId;
     private String orderName;
     // 支付宝交易号
