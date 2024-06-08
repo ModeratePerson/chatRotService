@@ -1,7 +1,9 @@
 server:
-  port: 8080
   servlet:
-    context-path: / #项目的上下文路径
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
 spring:
   # Redis配置
   redis:
@@ -53,12 +55,12 @@ app:
     #    海外版
     dev:
       url: "https://api.coze.com/open_api/v2/chat"
-      key: ""
+      key: "pat_msNYVC4GytdSVdnSSBOJ6SxUaGlp0cYVblimZYZwezdczUDn2smyKGbkMhvu8g04"
       bot_id: "7375091418286538757"
     #    国内版
     test:
       url: "https://api.coze.cn/open_api/v2/chat"
-      key: ""
+      key: "pat_Z3J8Qdmbesu0G1EOTd6MxECazblTttotvnoUulwmROMIvUGs06FzOlXfG4iw6pIN"
       bot_id: "7376940590615101459"
     #      海外版
     prod:
